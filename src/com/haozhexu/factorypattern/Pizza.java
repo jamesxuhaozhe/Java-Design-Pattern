@@ -5,9 +5,9 @@ package com.haozhexu.factorypattern;
  */
 public abstract class Pizza {
     String name;
-    public void prepare() {
-        System.out.println("Preparing " + name);
-    }
+    Source source;
+    Dough dough;
+    public abstract void prepare();
     public void cook() {
         System.out.println("Cooking " + name);
     }
@@ -15,6 +15,6 @@ public abstract class Pizza {
         System.out.println("Cutting " + name);
     }
     public String toString() {
-        return "The pizza is " + name;
+        return "The pizza is " + name + "with ingredients: " + source.getSourceName() + " " + dough.getDoughName();
     }
 }
