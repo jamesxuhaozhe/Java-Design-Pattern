@@ -67,7 +67,7 @@ public class GumballMachine implements State {
     }
 
     public void setBallCount(int count) {
-        ballCount = count;
+        ballCount += count;
     }
 
     public void giveGumball() {
