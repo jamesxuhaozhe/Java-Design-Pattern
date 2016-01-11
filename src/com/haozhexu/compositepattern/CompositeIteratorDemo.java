@@ -40,5 +40,6 @@ public class CompositeIteratorDemo {
 
         Waitress waitress = new Waitress(allMenus);
         waitress.print();
+        waitress.printVeggie();
     }
 }
