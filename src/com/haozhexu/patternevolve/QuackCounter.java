@@ -5,10 +5,12 @@ package com.haozhexu.patternevolve;
  */
 public class QuackCounter implements Quackable {
     private Quackable quackable;
-    private static int numberOfQuacks;
+    private static int numberOfQuacks = 1;
+    private MyObservable observable;
 
     public QuackCounter(Quackable quackable) {
         this.quackable = quackable;
+        observable = new MyObservable(this);
     }
 
     @Override
@@ -19,5 +21,15 @@ public class QuackCounter implements Quackable {
 
     public static int getQuackCount() {
         return numberOfQuacks;
+    }
+
+    @Override
+    public void registerObserver(MyObserver observer) {
+        quackable.registerObserver(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        quackable.notifyObservers();
     }
 }
