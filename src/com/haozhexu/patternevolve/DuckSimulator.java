@@ -33,9 +33,8 @@ public class DuckSimulator {
         flockOfMallard.addQuackableAndReturnSelf(mallard1).
                 addQuackableAndReturnSelf(mallard2).
                 addQuackableAndReturnSelf(mallard3).
-                addQuackableAndReturnSelf(mallard3).
                 addQuackableAndReturnSelf(mallard4);
-        //flockOfDucks.addQuackable(flockOfMallard);
+        flockOfDucks.addQuackable(flockOfMallard);
 
         System.out.println("\nDuck Simulator: With Observer:\n");
         Quackologist quackologist = new Quackologist();
