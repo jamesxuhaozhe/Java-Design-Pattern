@@ -27,7 +27,7 @@ public class Waitress {
                     component.print();
                 }
             } catch (UnsupportedOperationException e) {
-
+                //no-op
             }
         }
     }
