@@ -3,15 +3,15 @@ package com.haozhexu.observerpattern;
 /**
  * Created by haozhexu on 1/4/16.
  */
-public class ObservorA implements Observor, Displayable {
+public class ObserverA implements Observer, Displayable {
     private int previousTemp;
     private int currentTemp;
     private int futureTemp;
     private Subject weatherData;
 
-    public ObservorA(Subject weatherData) {
+    public ObserverA(Subject weatherData) {
         this.weatherData = weatherData;
-        weatherData.registerObservor(this);
+        weatherData.registerObserver(this);
     }
     @Override
     public void display() {

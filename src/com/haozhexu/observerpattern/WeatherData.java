@@ -7,34 +7,34 @@ import java.util.List;
  * Created by haozhexu on 1/4/16.
  */
 public class WeatherData implements Subject {
-    private List<Observor> observors;
+    private List<Observer> observers;
     private int previousTemp;
     private int currentTemp;
     private int futureTemp;
 
     public WeatherData() {
-        observors = new ArrayList<>();
+        observers = new ArrayList<>();
     }
     @Override
-    public void removeObservor(Observor o) {
-        int index = observors.indexOf(o);
-        observors.remove(index);
-    }
-
-    @Override
-    public void registerObservor(Observor o) {
-        observors.add(o);
+    public void removeObserver(Observer o) {
+        int index = observers.indexOf(o);
+        observers.remove(index);
     }
 
     @Override
-    public void notifiyObservors() {
-        for (Observor o : observors) {
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer o : observers) {
             o.update(previousTemp, currentTemp, futureTemp);
         }
     }
 
     public void measurementsChanged() {
-        notifiyObservors();
+        notifyObservers();
     }
 
     public void setMeasurements(int prev, int curr, int futr) {
