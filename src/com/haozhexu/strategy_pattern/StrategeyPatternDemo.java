@@ -6,7 +6,7 @@ package com.haozhexu.strategy_pattern;
 public class StrategeyPatternDemo {
 
     public static void main(final String[] args) {
-        Duck duck = new ConreteDuck();
+        Duck duck = new ConcreteDuck();
         duck.setFlyable(new FlyWithWings());
         duck.setQuackable(new BadQuack());
         duck.display();
