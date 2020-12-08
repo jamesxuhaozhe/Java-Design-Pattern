@@ -3,20 +3,14 @@ package com.haozhexu.demo;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.*;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 
 public class main {
 
-
+    private static int m;
 
     public static void main(String[] args) {
 
-        UserService service = new UserServiceImpl();
+      /*  UserService service = new UserServiceImpl();
         MyInvocationHandler handler = new MyInvocationHandler(service);
         UserService proxy = (UserService) handler.getProxy();
         proxy.add();
@@ -46,10 +40,36 @@ public class main {
 
 
         Period period = Period.between(LocalDate.of(2020, 12, 1), LocalDate.of(2020, 12, 29));
-        System.out.println(period.getYears() + " " + period.getMonths() +" " + period.getDays());
+        System.out.println(period.getYears() + " " + period.getMonths() +" " + period.getDays());*/
+
+ /*       int h = 7;
+
+        int length = 31;
+
+        System.out.println(h & (length - 1));
+        System.out.println(h % length);*/
+
+        Thread[] threads = new Thread[100];
 
 
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < 100; j++) {
+                    m++;
+                }
+            });
+            threads[i].start();
+        }
 
+        for (int i = 0; i < threads.length; i++) {
+            try {
+                threads[i].join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println(m);
 
 
     }
