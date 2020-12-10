@@ -3,6 +3,8 @@ package com.haozhexu.demo;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class main {
 
@@ -52,10 +54,13 @@ public class main {
         Thread[] threads = new Thread[100];
 
 
+        final AtomicInteger integer = new AtomicInteger(0);
+
         for (int i = 0; i < threads.length; i++) {
             threads[i] = new Thread(() -> {
                 for (int j = 0; j < 100; j++) {
                     m++;
+                    integer.incrementAndGet();
                 }
             });
             threads[i].start();
@@ -69,7 +74,7 @@ public class main {
             }
         }
 
-        System.out.println(m);
+        System.out.println(integer.get());
 
 
     }
